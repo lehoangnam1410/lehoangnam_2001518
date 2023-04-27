@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script language="javascript" src="js/index.js"></script>
+    <script language="javascript" src="js/main.js"></script>
+    <title>Document</title>
+</head>
+<body onload='draw_9x9();'>
+    <div class="header" id="myHeader">
+      <div class="header_main">
+        <div class="logo">
+       <table class="tb_menu">
+        <tr>
+          <td> <a href="index.html"> Sodoku </a></td>
+          <td> <a href="html/huongdan.html"> Hướng dẫn sử dụng </a></td>
+          <td> <a href="html/mota.html"> Mô tả thuật toán </a></td>
+        </tr>
+       </table>
+        </div>
+        <div class="light">
+          <div class="a">
+          <img src="img/logo-dhtb-20210821110425-e.png" alt="">
+           <p> Đại học thái bình </p>
+           </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+        <h1> Máy tính giải Sudoku </h1>
+        <div style="text-align: left; padding: 0 20px 20px 20px;">
+        </div>
+        <div class="board-block">
+          <table>
+            <tr style="vertical-align: top">
+              <td style="padding: 0 32px;">
+                <span id="9x9"></span>
+              </td>
+            </tr>
+          </table>
+          <div style="padding-top: 15px;">
+            <div >
+              <input type="button" class="btn" value="Giải" onClick="solve();">
+              <input type="button" class="btn" value="Clear" onClick="clear_input();">
+            </div>
+            <div id="runtime" style="color: gray; padding-top: 10px;"> 
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="text1">
+       <h1> Giới thiệu Sudoku</h1>
+        Trò chơi giải đố vui nhộn, dễ hiểu này đã khiến con người say mê trong gần 3.000 năm. <br>
+        Mục tiêu của trò chơi là điền vào lưới Sudoku một chuỗi các số có một chữ số, mỗi số chỉ xuất hiện một lần trong một hàng, cột hoặc khối 3x3 đã cho. Khi bắt đầu, có một số ô được điền sẵn số trong lưới Sudoku, đóng vai trò là manh mối giúp người chơi dần dần giải được toàn bộ câu đố. 
+       <br>
+        Bất cứ ai cũng có thể chơi Sudoku. Không liên quan đến việc tính toán; đây hoàn toàn là một trò chơi logic, vì vậy bạn không cần phải là một nhà toán học để giải các lưới Sudoku. Điều này giải thích lý do tại sao Sudoku lại trở thành một hiện tượng toàn cầu thực sự. Hàng triệu người chơi Sudoku mỗi ngày
+       <br> Theo định nghĩa, lưới Sudoku hợp lệ phải có một (và chỉ một) lời giải. Chúng tôi đảm bảo rằng tất cả các lưới Sudoku của mình đều có một lời giải duy nhất. Mặc dù dễ thiết kế lưới hơn với nhiều lời giải (hoặc hoàn toàn không có lời giải nào), nhưng đó không thể được coi là câu đố Sudoku thực sự. Vì trong trường hợp ở nhiều trò chơi logic, chỉ có thể có một câu trả lời. Do đó, cần hết sức cẩn thận khi thiết kế vì thậm chí một con số bị đặt sai cũng sẽ khiến câu đố không thể giải được
+       <br> Ngoài ra còn có một quy tắc bất thành văn rằng vẻ đẹp của lưới Sudoku nằm ở sự phân bố đối xứng, ở hai bên của hai đường chéo của lưới, các số được điền sẵn khi bắt đầu. Sự hài hòa thị giác này được nhiều người chơi Sudoku cuồng nhiệt nhất săn lùng. Mặc dù việc tạo các lưới đối xứng là vô cùng phức tạp, đặc biệt là các lưới được đảm bảo để có một lời giải duy nhất, nhưng chúng tôi chỉ thiết kế các lưới Sudoku có kiểu đối xứng này. Một số lưới của chúng tôi mất nhiều tuần tính toán để phát triển và do đó chúng tôi tự hào có thể cung cấp cho bạn những câu đố đối xứng có một lời giải này. Sau cùng, Sudoku không chỉ là một trò chơi; đó là một triết lý và một lối sống trong đó vẻ đẹp và sự hài hòa là ưu tiên hàng đầu
+        <br> Các chữ số trong câu đố Sudoku chỉ được sử dụng để thuận tiện; mối quan hệ số học giữa các số này không có liên quan. Bất kỳ tập hợp biểu tượng riêng biệt nào đều sẽ được; chữ cái, hình dạng hoặc màu sắc có thể được sử dụng mà không làm thay đổi luật chơ
+       <br> Điểm hấp dẫn của trò chơi là các quy tắc rất đơn giản, nhưng dòng lý luận để giải câu đố lại phức tạp. Các lưới chúng tôi xuất bản được xếp hạng theo độ khó từ 1 (dễ nhất) đến 5 (khó nhất). Nói chung, càng nhiều số được cung cấp ngay từ đầu, câu đố sẽ dễ giải hơn và ngược lại, mặc dù có một số trường hợp ngoại l
+       <br> Trong những năm gần đây, sự nổi tiếng của Sudoku tăng nhanh chóng đến kinh ngạc và lời giới thiệu nhanh trên các tờ báo quốc tế đã khiến Sudoku trở thành trò chơi giải đố yêu thích của thế kỷ 21. Hơn nữa, nhiều chính phủ khuyến khích mọi người chơi Sudoku vì trò chơi được coi là có vai trò quan trọng trong việc ngăn ngừa các bệnh liên quan đến tuổi tác (đặc biệt là bệnh Alzheimer).
+      </div>
+      <div class="text2">
+        <h1>Phương pháp Cơ bản để Giải Câu đố Sudoku </h1>
+        <h2>Nguyên tắc </h2>
+        <br> Bắt đầu bằng cách chụp lưới Sudoku cho mỗi số từ 1 đến 9. Trong mỗi khối:
+        <br> Kiểm tra xem số có xuất hiện hay không;
+        <br> Nếu số xuất hiện, hãy xác định các ô vuông nào khác trong cùng hàng hoặc cột không thể chấp nhận số đó;
+        <br> Nếu số này không xuất hiện, hãy xác định các ô vuông nào khác không thể chấp nhận số đó, với vị trí xuất hiện khác của cùng số đó trong các khối khác ở cùng một hàng và cột.
+        <br> Khi chỉ có một giá trị khả dĩ cho một hàng, cột hoặc khối, đây là nơi cần điền số. Với chút kinh nghiệm, bạn sẽ có thể hình dung ra các ô vuông nơi số có thể xuất hiện như thể số đó được "thắp sáng" trên lưới Sudoku. Điều này sẽ cho phép bạn phát hiện các cấu hình nâng cao hơn.
+        <br> Nếu có thể giải Sudoku chỉ bằng các chiến lược cơ bản, người chơi có kinh nghiệm có thể không cần phải ghi lại các ứng số vào các ô vuông.
+      </div>
+      <div class="text3">
+        <h1>Số duy nhất </h1>
+        <br> Một "số duy nhất" là trường hợp thông thường trong đó chỉ có một ô trống trong một "vùng" (hàng, cột hoặc khối). Trong trường hợp này, giá trị số của ô đó phải là số bị thiếu trong vùng: đó là nơi duy nhất có thể điền số bị thiếu (ẩn số duy nhất) và giá trị duy nhất mà ô trống có thể chấp nhận (số duy nhất hiển nhiên).
+        <br> Cấu hình này xảy ra thường xuyên nhất khi sắp giải xong câu đố, khi gần như tất cả các ô Sudoku đều được điền.
+        <br> Tổng quát hơn, thuật ngữ "số duy nhất" dùng để chỉ một tình huống chỉ có một lời giải cho một ô vuông cụ thể, cho dù là vì ô đó chỉ có thể chấp nhận một giá trị duy nhất (số duy nhất hiển nhiên) hoặc vì một giá trị chỉ có thể ở một ô vuông duy nhất (ẩn số duy nhất), vì bất kỳ lựa chọn nào khác đều sẽ dẫn đến kết quả không phù hợp ngay lập tức. Các số duy nhất khác với "cặp số," "bộ ba số," và "bộ bốn số," trong đó có thể có một vài giá trị tiềm năng cùng phù hợp.
+      </div>
+      <div class="text4">
+       <h1> Loại Trực tiếp: Ẩn Số duy nhất </h1>
+        <br> Khi tìm kiếm một "ẩn số duy nhất", câu hỏi cần đặt ra là: "Trong vùng này (hàng, cột hoặc khối), ô vuông nào có khả năng chấp nhận 1 (2, 3 ... 9)?" Nếu một ứng số chỉ xuất hiện một lần trong vùng cần tìm, thì số này phải là giá trị cho ô.
+        
+       <br> Giá trị xuất hiện càng thường xuyên trong lưới Sudoku, càng dễ tìm kiếm các ẩn số duy nhất; khi các hạn chế vị trí tăng lên, số vị trí khả dĩ sẽ giảm.
+        
+       <br> Đánh dấu các giá trị tiềm năng trong các ô là hỗ trợ giới hạn khi tìm kiếm các ẩn số duy nhất; bạn vẫn sẽ cần chụp toàn bộ "vùng" để kiểm tra xem giá trị đang tìm kiếm chỉ xuất hiện dưới dạng giá trị tiềm năng một lần. Đây là lý do tại sao các số duy nhất này được gọi là "ẩn."
+        
+       <br> Ngược lại, "ẩn số duy nhất" thường dễ tìm bằng cách chụp toàn bộ các số và khối, vì vị trí chỉ phụ thuộc vào vị trí của số cần tìm trong các khối lân cận và vào việc liệu các ô vuông của khối cần tìm có sẵn hay được điền vào.
+        
+       <h3> Loại Gián tiếp: </h3>
+       <br> Loại gián tiếp là mở rộng của loại trực tiếp.
+        
+       <br> Trong khi chụp lưới Sudoku để xác định vị trí các ô vuông tiềm năng cho một ứng số cụ thể, bạn có thể thấy rằng tất cả các ô vuông có sẵn trong một khối nằm trong cùng một hàng (hoặc cột). Trong trường hợp đó, bất kể vị trí cuối cùng của giá trị tiềm năng trong khối, giá trị không thể xuất hiện trong bất kỳ ô vuông có sẵn nào khác trong cùng một hàng (hoặc cột) trong các khối khác. Nói cách khác, nếu các ứng số trong một khối đều nằm trong cùng một hàng, giá trị đó có thể được loại trừ khỏi các ô vuông có sẵn khác trong toàn hàng.
+        
+       <br> Tương tự, khi các ứng số bị giới hạn ở hai hàng (hoặc cột) trong hai khối liền kề nhau, các giá trị tiềm năng của khối thứ ba chỉ có thể xuất hiện ở hàng (hoặc cột) thứ ba.
+        
+       <br> Giới hạn này có thể giúp xác định ẩn số duy nhất. Theo cách tinh tế hơn, cũng có thể đưa đến kết luận rằng, trong một khối khác dọc theo cùng một hàng (hoặc cột), các giá trị tiềm năng chỉ có thể được đặt trong một hàng hoặc một cột. Việc này sẽ tạo ra phản ứng dây chuyền loại gián tiếp. Do đó, quá trình loại gián tiếp ban đầu này có thể được thực hiện mà không cần đánh dấu các ô vuông; tuy nhiên, việc này đòi hỏi tư duy logic hơn.
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer1">
+          <a href="">Link trang web:</a>
+          <a href="">Soure code:</a>
+      </div>
+  </div>
+
+    <script>
+      window.onscroll = function() {myFunction()};
+      // Get the header
+      var header = document.getElementById("myHeader");
+      // Get the offset position of the navbar
+      var sticky = header.offsetTop;
+      // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+      function myFunction() {
+      if (window.pageYOffset > sticky) {
+      header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+      }
+    </script>
+</body>
+</html>

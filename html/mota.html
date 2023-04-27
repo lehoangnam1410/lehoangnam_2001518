@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/mota.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header" id="myHeader">
+        <div class="header_main">
+          <div class="logo">
+         <table class="tb_menu">
+          <tr>
+            <td> <a href="../index.html"> Sodoku </a></td>
+            <td> <a href="huongdan.html"> Hướng dẫn sử dụng </a></td>
+            <td> <a href="mota.html"> Mô tả thuật toán </a></td>
+          </tr>
+         </table>
+          </div>
+          <div class="light">
+            <div class="a">
+            <img src="../img/logo-dhtb-20210821110425-e.png" alt="">
+             <p> Đại học thái bình </p>
+             </div>
+          </div>
+        </div>
+    </div>
+    <div class="main">
+      <div class="text1">
+        <h1>Thuật toán giải sudoku bằng quay lui backtracking</h1>
+        <p>Sau đây ta sẽ tìm thuật toán giải Sudoku bằng kỹ thuật backtracking, ngôn ngữ lập trình sử dụng là JS. Các bước tiến hành như sau:</p>
+        <img src="../img/Capture3.PNG" alt="">
+        <p>B1. Viết hàm tìm các ô trống trong Sudoku
+          Mục tiêu của chúng ta là tìm các vị trí ô trống trong câu đố </p>
+        <img src="../img/Check.PNG" alt="">
+        <p>B2.  Viết hàm kiểm tra tính hợp lệ của một câu đố</p> 
+        <img src="../img/Capture5.PNG" alt="">
+        <p>B3. Viết hàm chính để tìm lời giải cho một câu đố Sudoku</p>
+        <img src="../img/Capture4.PNG" alt="">
+        <img src="../img/Capture5.PNG" alt=""> 
+        <p>B4. Chương trình JS giải Sudoku hoàn chỉnh</p>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer1">
+          <a href="">Link trang web:</a>
+          <a href="">Soure code:</a>
+      </div>
+  </div>
+    <script>
+      window.onscroll = function() {myFunction()};
+      // Get the header
+      var header = document.getElementById("myHeader");
+      // Get the offset position of the navbar
+      var sticky = header.offsetTop;
+      // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+      function myFunction() {
+      if (window.pageYOffset > sticky) {
+      header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+      }
+    </script>
+</body>
+</html>

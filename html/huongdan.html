@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/huongdan.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header" id="myHeader">
+        <div class="header_main">
+          <div class="logo">
+         <table class="tb_menu">
+          <tr>
+            <td> <a href="../index.html"> Sodoku </a></td>
+            <td> <a href="huongdan.html"> Hướng dẫn sử dụng </a></td>
+            <td> <a href="mota.html"> Mô tả thuật toán </a></td>
+          </tr>
+         </table>
+          </div>
+          <div class="light">
+            <div class="a">
+            <img src="../img/logo-dhtb-20210821110425-e.png" alt="">
+             <p> Đại học thái bình </p>
+             </div>
+          </div>
+        </div>
+    </div>
+  <div class="main">
+    <div class="b">
+    <p>Bước 1: Nhập 1 đề sodoku vào bảng</p>  
+    </div>
+    <div class="img">
+      <img src="../img/Capture.PNG" alt="">
+    </div>
+    <div class="b">
+     <p> Bước 2 : Nhấn nút Giải </p> 
+    </div>
+    <div class="img">
+      <img src="../img/Capture2.PNG" alt="">
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer1">
+        <a href="">Link trang web:</a>
+        <a href="">Soure code:</a>
+    </div>
+</div>
+
+    <script>
+      window.onscroll = function() {myFunction()};
+      var header = document.getElementById("myHeader");
+      var sticky = header.offsetTop;
+      function myFunction() {
+      if (window.pageYOffset > sticky) {
+      header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+      }
+    </script>
+</body>
+</html>
